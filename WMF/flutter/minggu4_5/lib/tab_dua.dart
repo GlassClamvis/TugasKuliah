@@ -1,55 +1,18 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    title: "List_Input_Alert_Snack",
-    home: pageOneS(),
-  ));
-}
-
-class PageOne extends StatelessWidget {
-  const PageOne({Key? key}) : super(key: key);
+class tabDua extends StatefulWidget {
+  const tabDua({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: const Text("Daftar Halaman"),
-      ),
-      body: ListView(
-        children: const <Widget>[
-          ListTile(
-            leading: Icon(Icons.home),
-            title: Text("Home"),
-          ),
-          ListTile(
-            leading: Icon(Icons.favorite),
-            title: Text("Fave"),
-          ),
-          ListTile(
-            leading: Icon(Icons.place),
-            title: Text("Place"),
-          ),
-        ],
-      ),
-    );
-  }
+  _tabDuaState createState() => _tabDuaState();
 }
 
-class pageOneS extends StatefulWidget {
-  const pageOneS({Key? key}) : super(key: key);
-
-  @override
-  _pageOneSState createState() => _pageOneSState();
-}
-
-class _pageOneSState extends State<pageOneS> {
+class _tabDuaState extends State<tabDua> {
   String teks = "Teks Input Akan Tampil disini";
   TextEditingController controller = TextEditingController();
-  /* 
+
   TextEditingController controller1 = TextEditingController();
-  TextEditingController controller2 = TextEditingController(); */
+  TextEditingController controller2 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,25 +37,25 @@ class _pageOneSState extends State<pageOneS> {
               },
             ),
             TextField(
-              controller: controller,
+              controller: controller1,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: "Ketik untuk tampilkan Alert di sini",
               ),
               onSubmitted: (String str) {
                 _alertDialog(str);
-                controller.text = "";
+                controller1.text = "";
               },
             ),
             TextField(
-              controller: controller,
+              controller: controller2,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: "Ketik untuk tampilkan Snackbar di sini",
               ),
               onSubmitted: (String str) {
                 _snackBar(str);
-                controller.text = "";
+                controller2.text = "";
               },
             ),
             Text(
